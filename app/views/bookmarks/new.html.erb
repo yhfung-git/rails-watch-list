@@ -1,0 +1,18 @@
+<div class="container">
+
+  <%# @list = give a list.id and @bookmark = empty bookmark(Book.new) %>
+  <%# this form will collect the comment, movie_id then combine witht the list_id given %>
+  <%# after clicked submit, it will send all the informations to create %>
+  <div>
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.input :comment %>
+      <%= f.association :movie %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= link_to "Back to #{@list.name}", list_path(@list) %>
+  </div>
+
+</div>
