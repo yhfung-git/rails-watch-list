@@ -1,5 +1,4 @@
 class BookmarksController < ApplicationController
-
   def new
     # pass the list.id to the view (form)
     @list = List.find(params[:list_id])
