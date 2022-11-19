@@ -1,4 +1,5 @@
 <div class="container">
+  <h2>Add a movie to your <%= @list.name %></h2>
 
   <%# @list = give a list.id and @bookmark = empty bookmark(Book.new) %>
   <%# this form will collect the comment, movie_id then combine witht the list_id given %>
@@ -7,7 +8,6 @@
     <%= simple_form_for [@list, @bookmark] do |f| %>
       <%= f.input :comment %>
       <%= f.association :movie %>
-      <%= f.input :photo, as: :file %>
       <%= f.button :submit %>
     <% end %>
   </div>
