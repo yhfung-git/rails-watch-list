@@ -12,7 +12,7 @@ class BookmarksController < ApplicationController
     # associate bookmark and list.id
     @bookmark.list = @list
     if @bookmark.save
-      redirect_to list_path(@list)
+      redirect_to list_path(@list), notice: 'Bookmark was successfully added.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -23,7 +23,7 @@ class BookmarksController < ApplicationController
 
     @bookmark.destroy
 
-    redirect_to list_path(@bookmark.list), status: :see_other
+    redirect_to list_path(@bookmark.list), status: :see_other, notice: 'Bookmark was successfully deleted.'
   end
 
   private
