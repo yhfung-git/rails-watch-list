@@ -1,6 +1,21 @@
-<div class="container">
-  <h2>Add a movie to your <%= @list.name %></h2>
+<%# Nav-bar %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid d-flex justify-content-center">
+   <%= link_to "/", class: "navbar-brand" do %>
+      <%= image_tag "https://plus.unsplash.com/premium_photo-1661914978519-52a11fe159a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" %>
+    <% end %>
+  </div>
+</div>
 
+<%# Banner %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1485095329183-d0797cdc5676?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);">
+  <div>
+    <h1>Add a movie to <%= @list.name %></h1>
+  </div>
+</div>
+
+<%# Form %>
+<div class="container">
   <%# @list = give a list.id and @bookmark = empty bookmark(Book.new) %>
   <%# this form will collect the comment, movie_id then combine witht the list_id given %>
   <%# after clicked submit, it will send all the informations to create %>
@@ -8,12 +23,8 @@
     <%= simple_form_for [@list, @bookmark] do |f| %>
       <%= f.input :comment %>
       <%= f.association :movie %>
-      <%= f.button :submit %>
+      <%= f.button :submit, class: "btn btn-ghost", value: "Add" %>
+      <%= link_to "Back to #{@list.name}", list_path(@list), class: "btn btn-ghost" %>
     <% end %>
   </div>
-
-  <div>
-    <%= link_to "Back to #{@list.name}", list_path(@list) %>
-  </div>
-
 </div>
